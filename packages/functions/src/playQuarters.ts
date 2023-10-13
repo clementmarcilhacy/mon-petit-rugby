@@ -29,26 +29,6 @@ export const main = ApiHandler(async () => {
       winner: "team2",
       stage: "quarterFinals",
     },
-    // Semi Finals
-    {
-      team1: "France",
-      team2: "Fiji",
-      winner: "team2",
-      stage: "semiFinals",
-    },
-    {
-      team1: "Wales",
-      team2: "Ireland",
-      winner: "team2",
-      stage: "semiFinals",
-    },
-    // Final
-    {
-      team1: "Fiji",
-      team2: "Ireland",
-      winner: "team1",
-      stage: "final",
-    },
   ]).go();
 
   return {
