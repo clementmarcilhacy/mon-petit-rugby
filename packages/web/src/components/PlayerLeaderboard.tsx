@@ -25,7 +25,7 @@ export const PlayerLeaderboard = () => {
   return (
     <Box
       sx={{
-        "div:nth-child(-n+3)": {
+        "div:nth-of-type(-n+3)": {
           color: "#F97068",
         },
         maxHeight: "80%",

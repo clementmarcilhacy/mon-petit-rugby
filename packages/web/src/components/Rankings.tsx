@@ -4,6 +4,7 @@ import { useState } from "react";
 import { CountryList } from "./countries/CountryList";
 import { Box, Button, TextField } from "@mui/material";
 import { useMutation } from "react-query";
+import { useNavigate } from "react-router";
 
 const countries = [
   {
@@ -65,6 +66,7 @@ const addUserRankings = async (user: UserEntity) => {
 };
 
 export const Rankings = () => {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [countryRanking, setCountryRanking] = useState(countries);
 
@@ -151,6 +153,7 @@ export const Rankings = () => {
                 borderColor: "#f97068",
               },
             }}
+            onClick={() => navigate("/leaderboard")}
           >
             Voir les résultats
           </Button>
