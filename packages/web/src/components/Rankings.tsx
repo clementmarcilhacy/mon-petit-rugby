@@ -130,6 +130,7 @@ export const Rankings = () => {
                   team: ranking.name,
                   ranking: ranking.ranking,
                 })),
+                points: 0,
               })
             }
             disabled={name === "" || mutation.isLoading}
