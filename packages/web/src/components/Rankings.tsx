@@ -78,18 +78,6 @@ export const Rankings = () => {
 
   return (
     <>
-      <Box
-        sx={{ display: "flex", alignItems: "flex-end", marginBottom: "10px" }}
-      >
-        <AccountCircle sx={{ color: "action.active", mr: 1, my: 0.5 }} />
-        <TextField
-          id="input-with-sx"
-          label="Your name"
-          variant="standard"
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-        />
-      </Box>
       <Box sx={{ display: "flex" }}>
         <CountryList
           countryRanking={countryRanking}
@@ -104,6 +92,23 @@ export const Rankings = () => {
             gap: "10px",
           }}
         >
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "flex-end",
+              alignSelf: "center",
+              marginBottom: "10px",
+            }}
+          >
+            <AccountCircle sx={{ color: "action.active", mr: 1, my: 0.5 }} />
+            <TextField
+              id="input-with-sx"
+              label="Ton nom"
+              variant="standard"
+              value={name}
+              onChange={(event) => setName(event.target.value)}
+            />
+          </Box>
           <Button
             sx={{
               color: "#82861D",

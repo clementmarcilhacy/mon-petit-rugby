@@ -5,7 +5,7 @@ import { Results } from "../components/countries/Results";
 export const Leaderboard = () => {
   return (
     <Box sx={{ marginTop: "50px" }}>
-      <h1>Leaderboard</h1>
+      <h1>Leaderboard 🏆</h1>
       <Box display="flex" sx={{ width: "100%", gap: "20px" }}>
         <Results />
         <PlayerLeaderboard />

@@ -28,7 +28,7 @@ const GameResult = ({ result }: { result: Result }) => {
       >
         {result.team1} - {result.team2} :
       </Box>
-      <Box sx={{ color: "#1243af" }}>{result[result.winner]}</Box>
+      <Box sx={{ color: "#F97068" }}>{result.winner}</Box>
     </Box>
   );
 };

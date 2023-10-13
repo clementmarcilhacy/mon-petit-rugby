@@ -52,6 +52,7 @@ export const Country = ({
         display: "flex",
         justifyContent: "space-between",
         width: "100%",
+        height: "80px",
       }}
     >
       <Box
@@ -67,6 +68,7 @@ export const Country = ({
           disabled={ranking === 0}
           onClick={handleMoveUp}
           sx={{
+            height: "40%",
             color: "#d1d646",
             "&:hover": {
               borderColor: "#f97068",
@@ -82,6 +84,7 @@ export const Country = ({
           onClick={handleMoveDown}
           disabled={ranking === countries.length - 1}
           sx={{
+            height: "40%",
             color: "#d1d646",
             "&:hover": {
               borderColor: "#f97068",
@@ -107,6 +110,8 @@ export const Country = ({
             flex: "1 0 auto",
             textAlign: "left",
             flexDirection: "column",
+            padding: "6px",
+            paddingBottom: "6px",
           }}
         >
           <Typography component="div" variant="h5">
