@@ -13,10 +13,10 @@ export const Match = new Entity(
     },
     attributes: {
       id: { type: "string" },
-      home: { type: "string" },
-      away: { type: "string" },
-      status: { type: "string" },
-      dateTime: { type: "string" },
+      home: { type: "string", required: true },
+      away: { type: "string", required: true },
+      status: { type: "string", required: true },
+      dateTime: { type: "string", required: true },
       score: {
         type: "map",
         properties: {
