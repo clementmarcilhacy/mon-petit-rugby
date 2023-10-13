@@ -28,7 +28,7 @@ export function ExampleStack({ stack }: StackContext) {
     buildOutput: "dist",
     buildCommand: "npm run build",
     environment: {
-      REACT_APP_API_URL: api.url,
+      VITE_APP_API_URL: api.url,
     },
   });
 

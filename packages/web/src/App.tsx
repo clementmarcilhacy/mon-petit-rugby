@@ -6,7 +6,8 @@ import "./App.css";
 function App() {
   const [count, setCount] = useState(0);
   console.log("count", count);
-  console.log("env variable", import.meta.env.REACT_APP_API_URL);
+  console.log("meta.env", import.meta.env);
+  console.log("env variable", import.meta.env.VITE_APP_API_URL);
 
   return (
     <>
