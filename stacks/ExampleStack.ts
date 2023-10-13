@@ -9,6 +9,17 @@ export function ExampleStack({ stack }: StackContext) {
     primaryIndex: { partitionKey: "counter" },
   });
 
+  const mainTable = new Table(stack, 'Main', {
+    fields: {
+      pk: 'string',
+      sk: 'string'
+    },
+    primaryIndex: {
+      partitionKey: 'pk',
+      sortKey: 'sk'
+    }
+  })
+
   // Create the HTTP API
   const api = new Api(stack, "Api", {
     defaults: {
