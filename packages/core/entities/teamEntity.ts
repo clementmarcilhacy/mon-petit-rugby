@@ -1,19 +1,39 @@
-import { EntityV2, schema, string } from 'dynamodb-toolbox';
-import { mainTable } from '../table';
+import DynamoDB from "aws-sdk/clients/dynamodb";
+import { Entity } from "electrodb";
+import { Table } from "sst/node/table";
 
-const id = string().key()
-const name = string()
+const client = new DynamoDB.DocumentClient();
 
-const teamSchema = schema({
-    id, name
-})
-
-const teamEntity = new EntityV2({
-    name: 'Team',
-    table: mainTable,
-    schema: teamSchema,
-    computeKey: ({id}) => ({
-        pk: 'TEAM',
-        sk: id
-    })
-})
+export const Team = new Entity(
+  {
+    model: {
+      entity: "team",
+      version: "1",
+      service: "main",
+    },
+    attributes: {
+      name: {
+        type: "string",
+      },
+      players: {
+        type: "list",
+        items: {
+          type: "string",
+        },
+      },
+    },
+    indexes: {
+      team: {
+        pk: {
+          field: "pk",
+          composite: ["name"],
+        },
+        sk: {
+          field: "sk",
+          composite: [],
+        },
+      },
+    },
+  },
+  { table: Table.MainTable.tableName, client }
+);

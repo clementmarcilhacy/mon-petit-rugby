@@ -12,6 +12,6 @@
     "vitest": "^0.34.6"
   },
   "dependencies": {
-    "dynamodb-toolbox": "^1.0.0-beta.0"
+    "electrodb": "^2.10.3"
   }
 }

@@ -2,34 +2,26 @@ import { Api, Table, StaticSite, StackContext } from "sst/constructs";
 
 export function ExampleStack({ stack }: StackContext) {
   // Create the table
-  const table = new Table(stack, "Counter", {
+  const mainTable = new Table(stack, "MainTable", {
     fields: {
-      counter: "string",
-    },
-    primaryIndex: { partitionKey: "counter" },
-  });
-
-  const mainTable = new Table(stack, 'Main', {
-    fields: {
-      pk: 'string',
-      sk: 'string'
+      name: "string",
     },
     primaryIndex: {
-      partitionKey: 'pk',
-      sortKey: 'sk'
-    }
-  })
+      partitionKey: "name",
+    },
+  });
 
   // Create the HTTP API
   const api = new Api(stack, "Api", {
     defaults: {
       function: {
         // Bind the table name to our API
-        bind: [table],
+        bind: [mainTable],
       },
     },
     routes: {
       "POST /": "packages/functions/src/lambda.main",
+      "POST /add-fixtures": "packages/functions/src/addFixtures.main",
     },
   });
 
