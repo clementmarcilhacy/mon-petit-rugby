@@ -1,19 +1,80 @@
 import { Match } from "@mon-petit-rugby/core";
 import { Team } from "@mon-petit-rugby/core/entities/teamEntity";
+import { User } from "@mon-petit-rugby/core/entities/userEntity";
 
 export async function main() {
   await Team.put([
     {
-      name: "Toulouse",
-      players: ["Dupont", "Ntamack", "Kolbe"],
+      name: "Wales",
+      players: ["Biggar", "Adams", "Williams"],
     },
     {
-      name: "Racing 92",
-      players: ["Russel", "Vakatawa", "Thomas"],
+      name: "Argentina",
+      players: ["Sanchez", "Moyano", "Cordero"],
     },
     {
-      name: "Clermont",
-      players: ["Lopez", "Matsushima", "Raka"],
+      name: "Ireland",
+      players: ["Sexton", "Stockdale", "Ringrose"],
+    },
+    {
+      name: "New Zealand",
+      players: ["Barrett", "Ioane", "Smith"],
+    },
+    {
+      name: "England",
+      players: ["Farrell", "May", "Watson"],
+    },
+    {
+      name: "France",
+      players: ["Dupont", "Ntamack", "Vakatawa"],
+    },
+    {
+      name: "Fiji",
+      players: ["Nadolo", "Tuisova", "Yato"],
+    },
+    {
+      name: "South Africa",
+      players: ["Kolisi", "De Klerk", "Le Roux"],
+    },
+  ]).go();
+
+  await User.put([
+    {
+      name: "Clement",
+      teamsRanking: [
+        {
+          team: "Wales",
+          ranking: 1,
+        },
+        {
+          team: "Argentina",
+          ranking: 2,
+        },
+        {
+          team: "Ireland",
+          ranking: 3,
+        },
+        {
+          team: "New Zealand",
+          ranking: 4,
+        },
+        {
+          team: "England",
+          ranking: 5,
+        },
+        {
+          team: "France",
+          ranking: 6,
+        },
+        {
+          team: "Fiji",
+          ranking: 7,
+        },
+        {
+          team: "South Africa",
+          ranking: 8,
+        },
+      ],
     },
   ]).go();
 

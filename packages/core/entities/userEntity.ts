@@ -4,10 +4,10 @@ import { Table } from "sst/node/table";
 
 const client = new DynamoDB.DocumentClient();
 
-export const Team = new Entity(
+export const User = new Entity(
   {
     model: {
-      entity: "team",
+      entity: "user",
       version: "1",
       service: "main",
     },
@@ -15,19 +15,27 @@ export const Team = new Entity(
       name: {
         type: "string",
       },
-      players: {
+      teamsRanking: {
         type: "list",
         items: {
-          type: "string",
+          type: "map",
+          properties: {
+            team: {
+              type: "string",
+            },
+            ranking: {
+              type: "number",
+            },
+          },
         },
       },
     },
     indexes: {
-      team: {
+      name: {
         pk: {
           field: "pk",
           composite: [],
-          template: "TEAM",
+          template: "USER",
         },
         sk: {
           field: "sk",
