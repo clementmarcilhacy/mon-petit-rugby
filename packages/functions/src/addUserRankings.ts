@@ -19,6 +19,10 @@ export const main = ApiHandler(async (_evt) => {
 
   return {
     statusCode: 200,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Credentials": true,
+    },
     body: "user added",
   };
 });

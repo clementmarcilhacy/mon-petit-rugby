@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "sst dev --profile mon-petit-rugby --stage clementm",
+    "dev": "sst dev --profile mon-petit-rugby",
     "build": "sst build --profile mon-petit-rugby",
     "deploy": "sst deploy --stage prod --profile mon-petit-rugby",
     "remove": "sst remove --profile mon-petit-rugby",
