@@ -6,6 +6,7 @@ import { TEAMS } from "./teamEntity";
 const client = new DynamoDB.DocumentClient();
 
 const STAGES = ["quarterFinals", "semiFinals", "final"] as const;
+const WINNER = ["team1", "team2"] as const;
 
 export const Match = new Entity(
   {
@@ -17,7 +18,7 @@ export const Match = new Entity(
     attributes: {
       team1: { type: TEAMS, required: true },
       team2: { type: TEAMS, required: true },
-      winner: { type: TEAMS, required: true },
+      winner: { type: WINNER, required: true },
       stage: { type: STAGES, required: true },
     },
     indexes: {

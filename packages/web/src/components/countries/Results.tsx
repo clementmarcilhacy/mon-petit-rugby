@@ -1,51 +1,22 @@
 import { Box, Typography } from "@mui/material";
+import { useQuery } from "react-query";
+
 import groupBy from "lodash/groupBy";
 
 type Result = {
-  country1: string;
-  country2: string;
-  stade: "quarter" | "semi" | "final";
-  winner: "country1" | "country2";
+  team1: string;
+  team2: string;
+  stage: "quarter" | "semi" | "final";
+  winner: "team1" | "team2";
 };
 
-const results: Result[] = [
-  {
-    country1: "France",
-    country2: "South Africa",
-    stade: "quarter",
-    winner: "country1",
-  },
-  {
-    country1: "Fidji",
-    country2: "Wales",
-    stade: "quarter",
-    winner: "country2",
-  },
-  {
-    country1: "Fidji",
-    country2: "Wales",
-    stade: "quarter",
-    winner: "country2",
-  },
-  {
-    country1: "Fidji",
-    country2: "Wales",
-    stade: "quarter",
-    winner: "country2",
-  },
-  {
-    country1: "Fidji",
-    country2: "Wales",
-    stade: "semi",
-    winner: "country2",
-  },
-  {
-    country1: "Fidji",
-    country2: "Wales",
-    stade: "final",
-    winner: "country2",
-  },
-];
+const getMatchesResults = async () => {
+  const response = await fetch(
+    `${import.meta.env.VITE_APP_API_URL}/get-matches`
+  );
+
+  return response.json();
+};
 
 const GameResult = ({ result }: { result: Result }) => {
   return (
@@ -55,37 +26,65 @@ const GameResult = ({ result }: { result: Result }) => {
           color: "#212738",
         }}
       >
-        {result.country1} - {result.country2} :
+        {result.team1} - {result.team2} :
       </Box>
-      <Box sx={{ color: "#F97068" }}>{result[result.winner]}</Box>
+      <Box sx={{ color: "#1243af" }}>{result[result.winner]}</Box>
     </Box>
   );
 };
 
 export const Results = () => {
-  const groupedResults = groupBy(results, ({ stade }) => stade);
+  const { data, status } = useQuery("matches", getMatchesResults);
+
+  if (status === "loading") {
+    return <div>Loading...</div>;
+  }
+
+  const groupedResults = groupBy(data.data, ({ stage }) => stage);
+
   return (
     <Box
       sx={{
         maxHeight: "80%",
-        color: "#D1D646",
         display: "flex",
         border: "1px solid",
         borderRadius: "5px",
         alignItems: "center",
         flexDirection: "column",
+        padding: "20px",
       }}
     >
-      <Typography variant="h5">Finale</Typography>
-      {groupedResults["final"].map((result, index) => (
+      <Typography
+        variant="h5"
+        sx={{
+          color: "#D1D646",
+        }}
+      >
+        Finale
+      </Typography>
+      {groupedResults["final"]?.map((result, index) => (
         <GameResult key={index} result={result} />
-      ))}
-      <Typography variant="h5">Demi-finale</Typography>
-      {groupedResults["semi"].map((result, index) => (
+      )) ?? <p>Pas encore de résultats</p>}
+      <Typography
+        variant="h5"
+        sx={{
+          color: "#D1D646",
+        }}
+      >
+        Demi-finale
+      </Typography>
+      {groupedResults["semiFinals"]?.map((result, index) => (
         <GameResult key={index} result={result} />
-      ))}
-      <Typography variant="h5">Quarts</Typography>
-      {groupedResults["quarter"].map((result, index) => (
+      )) ?? <p>Pas encore de résultats</p>}
+      <Typography
+        variant="h5"
+        sx={{
+          color: "#D1D646",
+        }}
+      >
+        Quarts
+      </Typography>
+      {groupedResults["quarterFinals"]?.map((result, index) => (
         <GameResult key={index} result={result} />
       ))}
     </Box>

@@ -8,45 +8,45 @@ export const main = ApiHandler(async () => {
     {
       team1: "France",
       team2: "South Africa",
-      winner: "France",
+      winner: "team1",
       stage: "quarterFinals",
     },
     {
       team1: "England",
       team2: "Fiji",
-      winner: "England",
+      winner: "team1",
       stage: "quarterFinals",
     },
     {
       team1: "New Zealand",
       team2: "Ireland",
-      winner: "Ireland",
+      winner: "team2",
       stage: "quarterFinals",
     },
     {
       team1: "Argentina",
       team2: "Wales",
-      winner: "Wales",
+      winner: "team2",
       stage: "quarterFinals",
     },
     // Semi Finals
     {
       team1: "France",
       team2: "England",
-      winner: "France",
+      winner: "team1",
       stage: "semiFinals",
     },
     {
       team1: "Wales",
       team2: "Ireland",
-      winner: "Ireland",
+      winner: "team2",
       stage: "semiFinals",
     },
     // Final
     {
       team1: "France",
       team2: "Ireland",
-      winner: "France",
+      winner: "team1",
       stage: "final",
     },
   ]).go();

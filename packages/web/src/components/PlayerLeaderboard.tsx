@@ -39,6 +39,7 @@ export const PlayerLeaderboard = () => {
         color: "#D1D646",
         border: "1px solid",
         borderRadius: "5px",
+        padding: "20px",
       }}
     >
       {sortedUsers.map((user, index) => (
