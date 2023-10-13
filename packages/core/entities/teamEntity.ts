@@ -1,5 +1,6 @@
 import DynamoDB from "aws-sdk/clients/dynamodb";
 import { Entity } from "electrodb";
+import { type } from "os";
 import { Table } from "sst/node/table";
 
 const client = new DynamoDB.DocumentClient();
@@ -21,6 +22,7 @@ export const STATUSES = [
   "finalist",
   "worldChampion",
 ] as const;
+export type Status = (typeof STATUSES)[number];
 
 export const Team = new Entity(
   {

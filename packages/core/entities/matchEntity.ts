@@ -5,7 +5,7 @@ import { TEAMS } from "./teamEntity";
 
 const client = new DynamoDB.DocumentClient();
 
-const STAGES = ["quarterFinals", "semiFinals", "final"] as const;
+export const STAGES = ["quarterFinals", "semiFinals", "final"] as const;
 const WINNER = ["team1", "team2"] as const;
 
 export const Match = new Entity(
