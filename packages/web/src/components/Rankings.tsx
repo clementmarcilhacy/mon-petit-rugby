@@ -7,39 +7,44 @@ import { useMutation } from "react-query";
 
 const countries = [
   {
-    name: "France",
+    name: "France" as const,
     flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/1200px-Flag_of_France.svg.png",
     ranking: 1,
   },
   {
-    name: "Angleterre",
+    name: "England" as const,
     flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Flag_of_England.svg/1200px-Flag_of_England.svg.png",
     ranking: 2,
   },
   {
-    name: "Irlande",
+    name: "Ireland" as const,
     flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Flag_of_Ireland.svg/1200px-Flag_of_Ireland.svg.png",
     ranking: 3,
   },
   {
-    name: "Pays de Galles",
+    name: "Wales" as const,
     flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Flag_of_Wales.svg/langfr-450px-Flag_of_Wales.svg.png",
     ranking: 4,
   },
   {
-    name: "Ecosse",
-    flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Flag_of_Scotland.svg/1200px-Flag_of_Scotland.svg.png",
+    name: "Argentina" as const,
+    flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/510px-Flag_of_Argentina.svg.png",
     ranking: 5,
   },
   {
-    name: "South Africa",
+    name: "South Africa" as const,
     flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Flag_of_South_Africa.svg/510px-Flag_of_South_Africa.svg.png",
     ranking: 6,
   },
   {
-    name: "New Zealand",
+    name: "New Zealand" as const,
     flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Flag_of_New_Zealand.svg/510px-Flag_of_New_Zealand.svg.png",
     ranking: 7,
+  },
+  {
+    name: "Fiji" as const,
+    flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Fiji.svg/510px-Flag_of_Fiji.svg.png",
+    ranking: 8,
   },
 ];
 

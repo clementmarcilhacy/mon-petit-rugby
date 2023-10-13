@@ -5,12 +5,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
-
-export type Country = {
-  name: string;
-  ranking: number;
-  flag: string;
-};
+import { Country as CountryType } from "../Rankings";
 
 export const Country = ({
   name,
@@ -18,9 +13,9 @@ export const Country = ({
   flag,
   countries,
   setCountryRanking,
-}: Country & {
-  countries: Country[];
-  setCountryRanking: (country: Country[]) => void;
+}: CountryType & {
+  countries: CountryType[];
+  setCountryRanking: (country: CountryType[]) => void;
 }) => {
   const selectedIndex = ranking - 1;
 

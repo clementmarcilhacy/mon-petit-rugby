@@ -1,6 +1,7 @@
 import DynamoDB from "aws-sdk/clients/dynamodb";
 import { Entity, EntityRecord } from "electrodb";
 import { Table } from "sst/node/table";
+import { TEAMS } from "./teamEntity";
 
 const client = new DynamoDB.DocumentClient();
 
@@ -20,8 +21,8 @@ export const User = new Entity(
         items: {
           type: "map",
           properties: {
-            teamId: {
-              type: "string",
+            team: {
+              type: TEAMS,
             },
             ranking: {
               type: "number",

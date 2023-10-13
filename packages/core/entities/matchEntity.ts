@@ -1,6 +1,7 @@
 import DynamoDB from "aws-sdk/clients/dynamodb";
 import { Entity } from "electrodb";
 import { Table } from "sst/node/table";
+import { TEAMS } from "./teamEntity";
 
 const client = new DynamoDB.DocumentClient();
 
@@ -12,18 +13,9 @@ export const Match = new Entity(
       service: "main",
     },
     attributes: {
-      id: { type: "string" },
-      home: { type: "string", required: true },
-      away: { type: "string", required: true },
-      status: { type: "string", required: true },
-      dateTime: { type: "string", required: true },
-      score: {
-        type: "map",
-        properties: {
-          home: { type: "number" },
-          away: { type: "number" },
-        },
-      },
+      team1: { type: TEAMS, required: true },
+      team2: { type: TEAMS, required: true },
+      winner: { type: TEAMS, required: true },
     },
     indexes: {
       match: {
@@ -34,7 +26,7 @@ export const Match = new Entity(
         },
         sk: {
           field: "sk",
-          composite: ["id"],
+          composite: [],
         },
       },
     },

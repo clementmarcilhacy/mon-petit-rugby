@@ -4,6 +4,17 @@ import { Table } from "sst/node/table";
 
 const client = new DynamoDB.DocumentClient();
 
+export const TEAMS = [
+  "Wales",
+  "Argentina",
+  "Ireland",
+  "New Zealand",
+  "England",
+  "France",
+  "Fiji",
+  "South Africa",
+] as const;
+
 export const Team = new Entity(
   {
     model: {
@@ -17,7 +28,7 @@ export const Team = new Entity(
         required: true,
       },
       name: {
-        type: "string",
+        type: TEAMS,
         required: true,
       },
     },

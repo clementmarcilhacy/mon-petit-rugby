@@ -43,6 +43,7 @@ export function ExampleStack({ stack }: StackContext) {
       "POST /": "packages/functions/src/lambda.main",
       "POST /add-fixtures": "packages/functions/src/addFixtures.main",
       "POST /add-user-rankings": "packages/functions/src/addUserRankings.main",
+      "POST /simulate-matches": "packages/functions/src/simulateMatches.main",
     },
   });
 
