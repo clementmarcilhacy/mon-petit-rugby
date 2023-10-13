@@ -48,7 +48,7 @@ export const CountryList = () => {
   return (
     <>
       <Box>
-        <Typography> Votre classement</Typography>
+        <Typography> Ton classement :</Typography>
       </Box>
       <Box sx={{ display: "flex", flexDirection: "column", gap: "10px" }}>
         {countryRanking.map(({ name, flag }, index) => (

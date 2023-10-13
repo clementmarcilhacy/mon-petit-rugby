@@ -4,7 +4,7 @@ import { Box } from "@mui/material";
 
 export const Ranking = () => {
   return (
-    <Box sx={{ marginTop: "30px" }}>
+    <Box sx={{ marginTop: "50px", position: "relative" }}>
       <Username />
       <CountryList />
     </Box>

@@ -4,7 +4,7 @@ import { Box } from "@mui/material";
 
 export const Leaderboard = () => {
   return (
-    <Box sx={{ marginTop: "30px" }}>
+    <Box sx={{ marginTop: "50px" }}>
       <Username />
       <CountryList />
     </Box>
