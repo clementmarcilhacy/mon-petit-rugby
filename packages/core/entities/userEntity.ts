@@ -1,5 +1,5 @@
 import DynamoDB from "aws-sdk/clients/dynamodb";
-import { Entity } from "electrodb";
+import { Entity, EntityRecord } from "electrodb";
 import { Table } from "sst/node/table";
 
 const client = new DynamoDB.DocumentClient();
@@ -46,3 +46,5 @@ export const User = new Entity(
   },
   { table: Table.MainTable.tableName, client }
 );
+
+export type UserEntity = EntityRecord<typeof User>;

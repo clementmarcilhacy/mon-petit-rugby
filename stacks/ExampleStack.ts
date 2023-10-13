@@ -22,6 +22,7 @@ export function ExampleStack({ stack }: StackContext) {
     routes: {
       "POST /": "packages/functions/src/lambda.main",
       "POST /add-fixtures": "packages/functions/src/addFixtures.main",
+      "POST /add-user-rankings": "packages/functions/src/addUserRankings.main",
     },
   });
 
