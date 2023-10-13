@@ -87,7 +87,7 @@ export const Results = () => {
       </Typography>
       {groupedResults["quarterFinals"]?.map((result, index) => (
         <GameResult key={index} result={result} />
-      ))}
+      )) ?? <p>Pas encore de résultats</p>}
     </Box>
   );
 };
