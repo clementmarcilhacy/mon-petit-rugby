@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import { CountryList } from "./components/countries/CountryList";
+import { Username } from "./components/user/Username";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -11,6 +12,7 @@ function App() {
   return (
     <>
       <h1>Mon petit rugby</h1>
+      <Username />
       <CountryList />
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
