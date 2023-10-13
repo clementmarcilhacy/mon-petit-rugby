@@ -30,6 +30,10 @@ export const User = new Entity(
           },
         },
       },
+      points: {
+        type: "number",
+        default: 0,
+      },
     },
     indexes: {
       name: {

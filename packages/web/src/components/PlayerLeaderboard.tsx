@@ -1,34 +1,27 @@
+import { UserEntity } from "@mon-petit-rugby/core/entities/userEntity";
 import { Box } from "@mui/material";
+import { useQuery } from "react-query";
 
-const users = [
-  {
-    name: "Clément",
-    points: 500,
-  },
-  {
-    name: "Nicolas",
-    points: 330,
-  },
-  {
-    name: "John Doe",
-    points: 100,
-  },
-  {
-    name: "Jane Doe",
-    points: 200,
-  },
-  {
-    name: "Anais",
-    points: 250,
-  },
-  {
-    name: "Quentin",
-    points: 50,
-  },
-];
+const getUsersScores = async () => {
+  const response = await fetch(
+    `${import.meta.env.VITE_APP_API_URL}/get-users-scores`
+  );
+
+  return response.json();
+};
 
 export const PlayerLeaderboard = () => {
-  const sortedUsers = users.sort((a, b) => b.points - a.points);
+  const { data, status } = useQuery<UserEntity[]>(
+    "usersScores",
+    getUsersScores
+  );
+
+  if (status === "loading") {
+    return <div>Loading...</div>;
+  }
+
+  const sortedUsers = data?.sort((a, b) => b.points - a.points);
+
   return (
     <Box
       sx={{
@@ -42,7 +35,7 @@ export const PlayerLeaderboard = () => {
         padding: "20px",
       }}
     >
-      {sortedUsers.map((user, index) => (
+      {sortedUsers?.map((user, index) => (
         <Box key={index} sx={{ color: "#212738" }}>
           <p>
             {index + 1}. {user.name} - {user.points} points

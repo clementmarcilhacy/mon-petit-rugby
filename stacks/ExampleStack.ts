@@ -45,6 +45,7 @@ export function ExampleStack({ stack }: StackContext) {
       "POST /add-user-rankings": "packages/functions/src/addUserRankings.main",
       "POST /simulate-matches": "packages/functions/src/simulateMatches.main",
       "GET /get-matches": "packages/functions/src/getMatches.main",
+      "GET /get-users-scores": "packages/functions/src/getUsersScores.main",
     },
   });
 
