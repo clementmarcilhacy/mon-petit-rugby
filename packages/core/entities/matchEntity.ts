@@ -26,11 +26,11 @@ export const Match = new Entity(
       },
     },
     indexes: {
-      team: {
+      match: {
         pk: {
           field: "pk",
-          template: "match",
           composite: [],
+          template: "MATCH",
         },
         sk: {
           field: "sk",

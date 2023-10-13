@@ -9,6 +9,20 @@ export function ExampleStack({ stack }: StackContext) {
     primaryIndex: {
       partitionKey: "name",
     },
+    stream: true,
+    consumers: {
+      matchResult: {
+        function: "packages/functions/src/consumers/consumeMatchResult.main",
+        filters: [
+          {
+            dynamodb: { pk: { S: ["match"] } },
+          },
+          // {
+          //   dynamodb: { status: { S: ["finished"] } },
+          // },
+        ],
+      },
+    },
   });
 
   // Create the HTTP API
