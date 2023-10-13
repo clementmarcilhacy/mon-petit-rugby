@@ -6,41 +6,48 @@ export const main = ApiHandler(async () => {
   await Match.put([
     // Quarter Finals
     {
-      team1: "France" as const,
-      team2: "South Africa" as const,
-      winner: "France" as const,
+      team1: "France",
+      team2: "South Africa",
+      winner: "France",
+      stage: "quarterFinals",
     },
     {
-      team1: "England" as const,
-      team2: "Fiji" as const,
-      winner: "England" as const,
+      team1: "England",
+      team2: "Fiji",
+      winner: "England",
+      stage: "quarterFinals",
     },
     {
-      team1: "New Zealand" as const,
-      team2: "Ireland" as const,
-      winner: "Ireland" as const,
+      team1: "New Zealand",
+      team2: "Ireland",
+      winner: "Ireland",
+      stage: "quarterFinals",
     },
     {
-      team1: "Argentina" as const,
-      team2: "Wales" as const,
-      winner: "Wales" as const,
+      team1: "Argentina",
+      team2: "Wales",
+      winner: "Wales",
+      stage: "quarterFinals",
     },
     // Semi Finals
     {
-      team1: "France" as const,
-      team2: "England" as const,
-      winner: "France" as const,
+      team1: "France",
+      team2: "England",
+      winner: "France",
+      stage: "semiFinals",
     },
     {
-      team1: "Wales" as const,
-      team2: "Ireland" as const,
-      winner: "Ireland" as const,
+      team1: "Wales",
+      team2: "Ireland",
+      winner: "Ireland",
+      stage: "semiFinals",
     },
     // Final
     {
-      team1: "France" as const,
-      team2: "Ireland" as const,
-      winner: "France" as const,
+      team1: "France",
+      team2: "Ireland",
+      winner: "France",
+      stage: "final",
     },
   ]).go();
 

@@ -44,6 +44,7 @@ export function ExampleStack({ stack }: StackContext) {
       "POST /add-fixtures": "packages/functions/src/addFixtures.main",
       "POST /add-user-rankings": "packages/functions/src/addUserRankings.main",
       "POST /simulate-matches": "packages/functions/src/simulateMatches.main",
+      "GET /get-matches": "packages/functions/src/getMatches.main",
     },
   });
 
