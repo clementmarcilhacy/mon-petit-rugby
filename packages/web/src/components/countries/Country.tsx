@@ -24,7 +24,14 @@ export const Country = ({ name, ranking, flag }: Country) => {
           flexDirection: "column",
         }}
       >
-        <CardContent sx={{ flex: "1 0 auto" }}>
+        <CardContent
+          sx={{
+            display: "flex",
+            flex: "1 0 auto",
+            textAlign: "left",
+            flexDirection: "column",
+          }}
+        >
           <Typography component="div" variant="h5">
             {name}
           </Typography>
@@ -33,7 +40,7 @@ export const Country = ({ name, ranking, flag }: Country) => {
             color="text.secondary"
             component="div"
           >
-            Classement : {ranking}
+            Rank: {ranking}
           </Typography>
         </CardContent>
       </Box>
