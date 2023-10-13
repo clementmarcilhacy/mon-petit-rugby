@@ -45,13 +45,14 @@ export const Results = () => {
   return (
     <Box
       sx={{
-        maxHeight: "80%",
         display: "flex",
         border: "1px solid",
         borderRadius: "5px",
         alignItems: "center",
         flexDirection: "column",
         padding: "20px",
+        maxHeight: "70vh",
+        overflowY: "scroll",
       }}
     >
       <Typography

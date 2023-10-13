@@ -28,7 +28,8 @@ export const PlayerLeaderboard = () => {
         "div:nth-of-type(-n+3)": {
           color: "#F97068",
         },
-        maxHeight: "80%",
+        maxHeight: "70vh",
+        overflowY: "scroll",
         color: "#D1D646",
         border: "1px solid",
         borderRadius: "5px",
