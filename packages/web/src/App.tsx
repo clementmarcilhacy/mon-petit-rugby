@@ -11,11 +11,12 @@ function App() {
   return (
     <Router>
       <QueryClientProvider client={queryClient}>
-      <Header />
-      <Routes>
-        <Route path="/ranking" element={<Ranking />} />
-        <Route path="/leaderboard" element={<Leaderboard />} />
-      </Routes>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Ranking />} />
+          <Route path="/ranking" element={<Ranking />} />
+          <Route path="/leaderboard" element={<Leaderboard />} />
+        </Routes>
       </QueryClientProvider>
     </Router>
   );
