@@ -15,6 +15,13 @@ export const TEAMS = [
   "South Africa",
 ] as const;
 
+export const STATUSES = [
+  "quarterFinalist",
+  "semiFinalist",
+  "finalist",
+  "worldChampion",
+] as const;
+
 export const Team = new Entity(
   {
     model: {
@@ -24,11 +31,15 @@ export const Team = new Entity(
     },
     attributes: {
       id: {
-        type: "string",
+        type: TEAMS,
         required: true,
       },
       name: {
         type: TEAMS,
+        required: true,
+      },
+      status: {
+        type: STATUSES,
         required: true,
       },
     },

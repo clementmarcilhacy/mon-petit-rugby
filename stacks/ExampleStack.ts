@@ -12,6 +12,7 @@ export function ExampleStack({ stack }: StackContext) {
       sortKey: "sk",
     },
     stream: true,
+
     consumers: {
       matchResult: {
         function: "packages/functions/src/consumers/consumeMatchResult.main",
@@ -21,15 +22,12 @@ export function ExampleStack({ stack }: StackContext) {
               Keys: { pk: { S: ["match"] } },
             },
           },
-          {
-            dynamodb: {
-              Keys: { status: { S: ["finished"] } },
-            },
-          },
         ],
       },
     },
   });
+
+  mainTable.bindToConsumer("matchResult", [mainTable]);
 
   // Create the HTTP API
   const api = new Api(stack, "Api", {

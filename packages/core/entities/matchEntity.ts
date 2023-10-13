@@ -1,5 +1,5 @@
 import DynamoDB from "aws-sdk/clients/dynamodb";
-import { Entity } from "electrodb";
+import { Entity, EntityRecord } from "electrodb";
 import { Table } from "sst/node/table";
 import { TEAMS } from "./teamEntity";
 
@@ -37,3 +37,5 @@ export const Match = new Entity(
   },
   { table: Table.MainTable.tableName, client }
 );
+
+export type MatchRecord = EntityRecord<typeof Match>;
