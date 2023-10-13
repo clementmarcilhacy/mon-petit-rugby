@@ -54,7 +54,7 @@ export const Country = ({
         sx={{
           display: "flex",
           flexDirection: "column",
-          marginLeft: "6px",
+          padding: "4px",
           gap: "2px",
         }}
       >
@@ -97,7 +97,7 @@ export const Country = ({
       </Box>
       <CardMedia
         component="img"
-        sx={{ width: 151 }}
+        sx={{ width: 130 }}
         image={flag}
         alt={`${name}-flag`}
         style={{ padding: "4px" }}

@@ -71,7 +71,6 @@ export const Rankings = () => {
 
   return (
     <>
-      <h1>Mon petit rugby</h1>
       <Box
         sx={{ display: "flex", alignItems: "flex-end", marginBottom: "10px" }}
       >
@@ -84,26 +83,40 @@ export const Rankings = () => {
           onChange={(event) => setName(event.target.value)}
         />
       </Box>
-      <CountryList
-        countryRanking={countryRanking}
-        setCountryRanking={setCountryRanking}
-      />
-      <Button
-        variant="contained"
-        style={{ marginTop: 10 }}
-        onClick={() =>
-          mutation.mutate({
-            name,
-            teamsRanking: countryRanking.map((ranking) => ({
-              team: ranking.name,
-              ranking: ranking.ranking,
-            })),
-          })
-        }
-        disabled={name === "" || mutation.isLoading}
-      >
-        Click
-      </Button>
+      <Box sx={{ display: "flex" }}>
+        <CountryList
+          countryRanking={countryRanking}
+          setCountryRanking={setCountryRanking}
+        />
+        <Box sx={{ width: "400px", margin: "auto" }}>
+          <Button
+            sx={{
+              color: "#82861D",
+              backgroundColor: "#EDF2EF",
+              borderColor: "#EDF2EF",
+              border: "1px solid",
+              borderRadius: "10px",
+              height: "50px",
+              marginX: "50px",
+              "&:hover": {
+                borderColor: "#f97068",
+              },
+            }}
+            onClick={() =>
+              mutation.mutate({
+                name,
+                teamsRanking: countryRanking.map((ranking) => ({
+                  team: ranking.name,
+                  ranking: ranking.ranking,
+                })),
+              })
+            }
+            disabled={name === "" || mutation.isLoading}
+          >
+            Valider mon classement
+          </Button>
+        </Box>
+      </Box>
     </>
   );
 };
