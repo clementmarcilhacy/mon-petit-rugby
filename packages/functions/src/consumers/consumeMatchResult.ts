@@ -18,10 +18,10 @@ const getPoints = (status: Status, ranking: number): number => {
     return 2;
   }
   if (status === "finalist" && ranking === 2) {
-    return 3;
+    return 5;
   }
   if (status === "worldChampion" && ranking === 1) {
-    return 4;
+    return 10;
   }
   return 0;
 };
