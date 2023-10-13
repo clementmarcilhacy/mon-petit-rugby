@@ -5,7 +5,7 @@ export const Header = () => {
   return (
     <AppBar
       component="nav"
-      sx={{ backgroundColor: "#F97068", color: "#EDF2EF" }}
+      sx={{ backgroundColor: "#F97068", color: "#EDF2EF", boxShadow: "none" }}
     >
       <Toolbar>
         <Typography
@@ -13,7 +13,7 @@ export const Header = () => {
           component="div"
           sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
         >
-          MON PETIT RUGBY
+          MON PETIT RUGBY 🏉
         </Typography>
         <Box sx={{ display: { xs: "none", sm: "block" } }}>
           <Button sx={{ fontWeight: 700 }}>

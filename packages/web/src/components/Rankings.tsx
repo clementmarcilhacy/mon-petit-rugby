@@ -74,6 +74,8 @@ export const Rankings = () => {
     },
   });
 
+  const minWidth = "300px";
+
   return (
     <>
       <Box
@@ -93,7 +95,15 @@ export const Rankings = () => {
           countryRanking={countryRanking}
           setCountryRanking={setCountryRanking}
         />
-        <Box sx={{ width: "400px", margin: "auto" }}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            width: "400px",
+            margin: "auto",
+            gap: "10px",
+          }}
+        >
           <Button
             sx={{
               color: "#82861D",
@@ -103,6 +113,7 @@ export const Rankings = () => {
               borderRadius: "10px",
               height: "50px",
               marginX: "50px",
+              minWidth,
               "&:hover": {
                 borderColor: "#f97068",
               },
@@ -119,6 +130,23 @@ export const Rankings = () => {
             disabled={name === "" || mutation.isLoading}
           >
             Valider mon classement
+          </Button>
+          <Button
+            sx={{
+              color: "#82861D",
+              backgroundColor: "#EDF2EF",
+              borderColor: "#EDF2EF",
+              border: "1px solid",
+              borderRadius: "10px",
+              height: "50px",
+              marginX: "50px",
+              minWidth,
+              "&:hover": {
+                borderColor: "#f97068",
+              },
+            }}
+          >
+            Voir les résultats
           </Button>
         </Box>
       </Box>

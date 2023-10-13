@@ -6,6 +6,13 @@ import Typography from "@mui/material/Typography";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { Country as CountryType } from "../Rankings";
+import { Button } from "@mui/material";
+
+export type Country = {
+  name: string;
+  ranking: number;
+  flag: string;
+};
 
 export const Country = ({
   name,
@@ -40,6 +47,8 @@ export const Country = ({
   return (
     <Card
       sx={{
+        boxShadow: "none",
+        borderRadius: "6px",
         display: "flex",
         justifyContent: "space-between",
         width: "100%",
@@ -51,17 +60,39 @@ export const Country = ({
           flexDirection: "column",
           padding: "4px",
           gap: "2px",
+          justifyContent: "space-between",
         }}
       >
-        <button disabled={ranking === 0} onClick={handleMoveUp}>
+        <Button
+          disabled={ranking === 0}
+          onClick={handleMoveUp}
+          sx={{
+            color: "#d1d646",
+            "&:hover": {
+              borderColor: "#f97068",
+            },
+            "&:focus": {
+              borderColor: "#f97068",
+            },
+          }}
+        >
           <ArrowUpwardIcon />
-        </button>
-        <button
+        </Button>
+        <Button
           onClick={handleMoveDown}
           disabled={ranking === countries.length - 1}
+          sx={{
+            color: "#d1d646",
+            "&:hover": {
+              borderColor: "#f97068",
+            },
+            "&:focus": {
+              borderColor: "#f97068",
+            },
+          }}
         >
           <ArrowDownwardIcon />
-        </button>
+        </Button>
       </Box>
       <Box
         sx={{
@@ -92,7 +123,7 @@ export const Country = ({
       </Box>
       <CardMedia
         component="img"
-        sx={{ width: 130 }}
+        sx={{ width: 150 }}
         image={flag}
         alt={`${name}-flag`}
         style={{ padding: "4px" }}
