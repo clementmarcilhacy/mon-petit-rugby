@@ -4,11 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "sst dev",
-    "build": "sst build",
-    "deploy": "sst deploy",
-    "remove": "sst remove",
-    "console": "sst console",
+    "dev": "sst dev --profile mon-petit-rugby",
+    "build": "sst build --profile mon-petit-rugby",
+    "deploy": "sst deploy --profile mon-petit-rugby",
+    "remove": "sst remove --profile mon-petit-rugby",
+    "console": "sst console --profile mon-petit-rugby",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {

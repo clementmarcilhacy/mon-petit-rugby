@@ -23,10 +23,10 @@ export function ExampleStack({ stack }: StackContext) {
   });
 
   // Deploy our React app
-  const site = new StaticSite(stack, "ReactSite", {
-    path: "packages/frontend",
+  const site = new StaticSite(stack, "ReactWebSite", {
+    path: "packages/web",
+    buildOutput: "dist",
     buildCommand: "npm run build",
-    buildOutput: "build",
     environment: {
       REACT_APP_API_URL: api.url,
     },
