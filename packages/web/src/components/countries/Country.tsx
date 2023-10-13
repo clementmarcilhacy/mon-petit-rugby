@@ -50,7 +50,14 @@ export const Country = ({
         width: "100%",
       }}
     >
-      <Box sx={{ display: "flex", flexDirection: "column", marginLeft: "4px" }}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          marginLeft: "6px",
+          gap: "2px",
+        }}
+      >
         <button disabled={ranking === 0} onClick={handleMoveUp}>
           <ArrowUpwardIcon />
         </button>
