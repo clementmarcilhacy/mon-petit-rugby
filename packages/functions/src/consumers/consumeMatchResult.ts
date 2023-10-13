@@ -12,16 +12,16 @@ import { User } from "@mon-petit-rugby/core/entities/userEntity";
 
 const getPoints = (status: Status, ranking: number): number => {
   if (status === "quarterFinalist" && ranking >= 5) {
-    return 1;
+    return 10;
   }
   if (status === "semiFinalist" && ranking >= 3) {
-    return 2;
+    return 20;
   }
   if (status === "finalist" && ranking === 2) {
-    return 5;
+    return 50;
   }
   if (status === "worldChampion" && ranking === 1) {
-    return 10;
+    return 100;
   }
   return 0;
 };
