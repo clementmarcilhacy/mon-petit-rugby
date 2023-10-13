@@ -43,34 +43,42 @@ export async function main() {
       name: "Clement",
       teamsRanking: [
         {
+          id: "WAL",
           team: "Wales",
           ranking: 1,
         },
         {
+          id: "ARG",
           team: "Argentina",
           ranking: 2,
         },
         {
+          id: "IRE",
           team: "Ireland",
           ranking: 3,
         },
         {
+          id: "NZL",
           team: "New Zealand",
           ranking: 4,
         },
         {
+          id: "ENG",
           team: "England",
           ranking: 5,
         },
         {
+          id: "FRA",
           team: "France",
           ranking: 6,
         },
         {
+          id: "FIJ",
           team: "Fiji",
           ranking: 7,
         },
         {
+          id: "RSA",
           team: "South Africa",
           ranking: 8,
         },
