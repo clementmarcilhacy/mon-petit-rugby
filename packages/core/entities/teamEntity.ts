@@ -12,14 +12,13 @@ export const Team = new Entity(
       service: "main",
     },
     attributes: {
+      id: {
+        type: "string",
+        required: true,
+      },
       name: {
         type: "string",
-      },
-      players: {
-        type: "list",
-        items: {
-          type: "string",
-        },
+        required: true,
       },
     },
     indexes: {
@@ -31,7 +30,7 @@ export const Team = new Entity(
         },
         sk: {
           field: "sk",
-          composite: ["name"],
+          composite: ["id"],
         },
       },
     },

@@ -20,7 +20,7 @@ export const User = new Entity(
         items: {
           type: "map",
           properties: {
-            team: {
+            teamId: {
               type: "string",
             },
             ranking: {

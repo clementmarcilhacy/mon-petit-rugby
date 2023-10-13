@@ -1,40 +1,41 @@
-import { Match } from "@mon-petit-rugby/core";
+import { Match } from "@mon-petit-rugby/core/entities/matchEntity";
 import { Team } from "@mon-petit-rugby/core/entities/teamEntity";
 import { User } from "@mon-petit-rugby/core/entities/userEntity";
+import { ApiHandler } from "sst/node/api";
 
-export async function main() {
+export const main = ApiHandler(async () => {
   await Team.put([
     {
       id: "WAL",
-      team: "Wales"
+      name: "Wales",
     },
     {
       id: "ARG",
-      team: "Argentina"
+      name: "Argentina",
     },
     {
       id: "IRE",
-      team: "Ireland"
+      name: "Ireland",
     },
     {
       id: "NZL",
-      team: "New Zealand"
+      name: "New Zealand",
     },
     {
       id: "ENG",
-      team: "England"
+      name: "England",
     },
     {
       id: "FRA",
-      team: "France"
+      name: "France",
     },
     {
       id: "FIJ",
-      team: "Fiji"
+      name: "Fiji",
     },
     {
       id: "RSA",
-      team: "South Africa"
+      name: "South Africa",
     },
   ]).go();
 
@@ -43,59 +44,69 @@ export async function main() {
       name: "Clement",
       teamsRanking: [
         {
-          id: "WAL",
-          team: "Wales",
+          teamId: "WAL",
           ranking: 1,
         },
         {
-          id: "ARG",
-          team: "Argentina",
+          teamId: "ARG",
           ranking: 2,
         },
         {
-          id: "IRE",
-          team: "Ireland",
+          teamId: "IRE",
           ranking: 3,
         },
         {
-          id: "NZL",
-          team: "New Zealand",
+          teamId: "NZL",
           ranking: 4,
         },
         {
-          id: "ENG",
-          team: "England",
+          teamId: "ENG",
           ranking: 5,
         },
         {
-          id: "FRA",
-          team: "France",
+          teamId: "FRA",
           ranking: 6,
         },
         {
-          id: "FIJ",
-          team: "Fiji",
+          teamId: "FIJ",
           ranking: 7,
         },
         {
-          id: "RSA",
-          team: "South Africa",
+          teamId: "RSA",
           ranking: 8,
         },
       ],
     },
   ]).go();
 
+  console.log(
+    JSON.stringify(
+      Match.put([
+        {
+          id: "1",
+          home: "Toulouse",
+          away: "Racing 92",
+          status: "finished",
+          dateTime: "2021-01-01T20:00:00.000Z",
+          score: {
+            home: 10,
+            away: 20,
+          },
+        },
+      ]).params()
+    )
+  );
+
   await Match.put([
     {
-      id: "1",
+      id: "amhflkjhfdlq",
       home: "Toulouse",
       away: "Racing 92",
       status: "finished",
       dateTime: "2021-01-01T20:00:00.000Z",
       score: {
-        home: "10",
-        away: "20",
+        home: 10,
+        away: 20,
       },
     },
     {
@@ -109,6 +120,6 @@ export async function main() {
 
   return {
     statusCode: 200,
-    body: { result: "ok" },
+    body: JSON.stringify({ result: "ok" }),
   };
-}
+});

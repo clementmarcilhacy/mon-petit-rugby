@@ -4,10 +4,12 @@ export function ExampleStack({ stack }: StackContext) {
   // Create the table
   const mainTable = new Table(stack, "MainTable", {
     fields: {
-      name: "string",
+      pk: "string",
+      sk: "string",
     },
     primaryIndex: {
-      partitionKey: "name",
+      partitionKey: "pk",
+      sortKey: "sk",
     },
     stream: true,
     consumers: {
@@ -15,11 +17,15 @@ export function ExampleStack({ stack }: StackContext) {
         function: "packages/functions/src/consumers/consumeMatchResult.main",
         filters: [
           {
-            dynamodb: { pk: { S: ["match"] } },
+            dynamodb: {
+              Keys: { pk: { S: ["match"] } },
+            },
           },
-          // {
-          //   dynamodb: { status: { S: ["finished"] } },
-          // },
+          {
+            dynamodb: {
+              Keys: { status: { S: ["finished"] } },
+            },
+          },
         ],
       },
     },

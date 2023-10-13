@@ -20,8 +20,8 @@ export const Match = new Entity(
       score: {
         type: "map",
         properties: {
-          home: { type: "string" },
-          away: { type: "string" },
+          home: { type: "number" },
+          away: { type: "number" },
         },
       },
     },
