@@ -5,36 +5,36 @@ import { User } from "@mon-petit-rugby/core/entities/userEntity";
 export async function main() {
   await Team.put([
     {
-      name: "Wales",
-      players: ["Biggar", "Adams", "Williams"],
+      id: "WAL",
+      team: "Wales"
     },
     {
-      name: "Argentina",
-      players: ["Sanchez", "Moyano", "Cordero"],
+      id: "ARG",
+      team: "Argentina"
     },
     {
-      name: "Ireland",
-      players: ["Sexton", "Stockdale", "Ringrose"],
+      id: "IRE",
+      team: "Ireland"
     },
     {
-      name: "New Zealand",
-      players: ["Barrett", "Ioane", "Smith"],
+      id: "NZL",
+      team: "New Zealand"
     },
     {
-      name: "England",
-      players: ["Farrell", "May", "Watson"],
+      id: "ENG",
+      team: "England"
     },
     {
-      name: "France",
-      players: ["Dupont", "Ntamack", "Vakatawa"],
+      id: "FRA",
+      team: "France"
     },
     {
-      name: "Fiji",
-      players: ["Nadolo", "Tuisova", "Yato"],
+      id: "FIJ",
+      team: "Fiji"
     },
     {
-      name: "South Africa",
-      players: ["Kolisi", "De Klerk", "Le Roux"],
+      id: "RSA",
+      team: "South Africa"
     },
   ]).go();
 
