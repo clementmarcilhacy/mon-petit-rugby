@@ -31,6 +31,8 @@ export const main = async ({ Records }: { Records: any[] }): Promise<void> => {
 
   const { data: users } = await User.query.name({}).go();
 
+  const newUsers = [...users];
+
   console.log(JSON.stringify(Records, null, 2));
   Records.forEach(async (record) => {
     if (record.eventName !== "INSERT") {
@@ -61,19 +63,28 @@ export const main = async ({ Records }: { Records: any[] }): Promise<void> => {
 
     // update user points
 
-    users.forEach(async (user) => {
+    const newUsersUpdated = newUsers.map((user) => {
       const { teamsRanking } = user;
       if (teamsRanking === undefined) {
-        return;
+        return user;
       }
 
       const loserTeam = teamsRanking.find((team) => team.team === loserId);
 
       if (loserTeam === undefined) {
-        return;
+        return user;
       }
 
       const { ranking: expectedRanking } = loserTeam;
+
+      user.points =
+        (user.points ?? 0) +
+        getPoints(STATUSES[stageIndex], expectedRanking ?? 10);
+      console.log(`${user.name} has ${user.points} points`);
+
+      return user;
     });
+
+    await User.put(newUsersUpdated).go();
   });
 };
